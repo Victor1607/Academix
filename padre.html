@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ACADEMIX - Padre</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/lucide@latest/dist/lu.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login" class="login-container">
+  <div class="login-box">
+    <h2>ACADEMIX - Padre</h2>
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="clave" placeholder="Contraseña">
+    <button onclick="login()">Entrar</button>
+    <p id="error" class="error"></p>
+  </div>
+</div>
+
+<!-- PLATAFORMA -->
+<div id="plataforma" class="hidden">
+  <main id="contenido"></main>
+
+  <nav class="bottom-nav">
+    <button onclick="mostrar('notas')"><i data-lucide="file-text"></i><span>Notas</span></button>
+    <button onclick="mostrar('asistencia')"><i data-lucide="user-check"></i><span>Asistencia</span></button>
+    <button onclick="mostrar('tutorias')"><i data-lucide="graduation-cap"></i><span>Tutorías</span></button>
+  </nav>
+</div>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="padre.js"></script>
+<script>lucide.createIcons();</script>
+
+</body>
+</html>

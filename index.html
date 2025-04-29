@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ACADEMIX - Plataforma</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/lucide@latest/dist/lu.min.css" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f6f9;
+    }
+    .menu-container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .menu-container h1 {
+      margin-bottom: 30px;
+      color: #2575fc;
+    }
+    .menu-container button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 15px;
+      font-size: 18px;
+      background: #2575fc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .menu-container button:hover {
+      background: #1b5fc9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="menu-container">
+  <h1>Bienvenido a ACADEMIX</h1>
+  <button onclick="window.location.href='profesor.html'">PROFESOR</button>
+  <button onclick="window.location.href='estudiante.html'">ESTUDIANTES</button>
+  <button onclick="window.location.href='padre.html'">PADRE</button>
+</div>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
+
+</body>
+</html>

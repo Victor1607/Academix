@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ACADEMIX - Área de Extras</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/lucide@latest/dist/lu.min.css" rel="stylesheet">
+  <style>
+    .extras-menu {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .extras-menu button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #2575fc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .extras-menu button:hover {
+      background: #1b5fc9;
+    }
+    #contenido {
+      margin-top: 30px;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- CABECERA -->
+<header style="text-align:center; padding:20px; background:#2575fc; color:white;">
+  <h1>ACADEMIX - Área de Extras</h1>
+  <button onclick="window.location.href='profesor.html'" style="margin-top:10px;">⬅️ Volver al Panel Principal</button>
+</header>
+
+<!-- MENÚ DE OPCIONES -->
+<div class="extras-menu">
+  <button onclick="mostrar('quiz')">Crear Quiz</button>
+  <button onclick="mostrar('examen')">Crear Examen</button>
+  <button onclick="mostrar('video')">Subir Video</button>
+  <button onclick="mostrar('ia')">Crear Actividad con IA</button>
+</div>
+
+<!-- CONTENIDO -->
+<main id="contenido" style="padding:20px;"></main>
+
+<!-- LIBRERÍAS -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+lucide.createIcons();
+
+// CAMBIAR SECCIÓN
+function mostrar(seccion) {
+  const contenido = document.getElementById('contenido');
+  contenido.innerHTML = '';
+
+  if (seccion === 'quiz') contenido.innerHTML = crearQuiz();
+  if (seccion === 'examen') contenido.innerHTML = crearExamen();
+  if (seccion === 'video') contenido.innerHTML = subirVideo();
+  if (seccion === 'ia') contenido.innerHTML = crearConIA();
+}
+
+// CREAR QUIZ
+function crearQuiz() {
+  return `
+    <h2>Crear Nuevo Quiz</h2>
+    <input type="text" id="tituloQuiz" placeholder="Título del Quiz"><br><br>
+    <textarea id="preguntasQuiz" placeholder="Pregunta:RespuestaCorrecta,Opcion2,Opcion3"></textarea><br><br>
+    <button onclick="guardarQuiz()">💾 Guardar Quiz</button>
+  `;
+}
+
+function guardarQuiz() {
+  const titulo = document.getElementById('tituloQuiz').value.trim();
+  const preguntas = document.getElementById('preguntasQuiz').value.trim();
+  if (!titulo || !preguntas) {
+    alert('Completa todos los campos.');
+    return;
+  }
+  alert('✅ Quiz "' + titulo + '" guardado.');
+}
+
+// CREAR EXAMEN
+function crearExamen() {
+  return `
+    <h2>Crear Nuevo Examen</h2>
+    <input type="text" id="tituloExamen" placeholder="Título del Examen"><br><br>
+    <input type="number" id="tiempoExamen" placeholder="Tiempo en minutos"><br><br>
+    <textarea id="preguntasExamen" placeholder="Pregunta:RespuestaCorrecta,Opcion2,Opcion3"></textarea><br><br>
+    <button onclick="guardarExamen()">💾 Guardar Examen</button>
+  `;
+}
+
+function guardarExamen() {
+  const titulo = document.getElementById('tituloExamen').value.trim();
+  const tiempo = document.getElementById('tiempoExamen').value;
+  const preguntas = document.getElementById('preguntasExamen').value.trim();
+  if (!titulo || !preguntas || !tiempo) {
+    alert('Completa todos los campos.');
+    return;
+  }
+  alert('✅ Examen "' + titulo + '" guardado con tiempo de ' + tiempo + ' minutos.');
+}
+
+// SUBIR VIDEO
+function subirVideo() {
+  return `
+    <h2>Subir Nuevo Video</h2>
+    <input type="text" id="tituloVideo" placeholder="Título del Video"><br><br>
+    <input type="text" id="enlaceVideo" placeholder="Enlace de YouTube o archivo"><br><br>
+    <button onclick="guardarVideo()">💾 Guardar Video</button>
+  `;
+}
+
+function guardarVideo() {
+  const titulo = document.getElementById('tituloVideo').value.trim();
+  const enlace = document.getElementById('enlaceVideo').value.trim();
+  if (!titulo || !enlace) {
+    alert('Completa todos los campos.');
+    return;
+  }
+  alert('✅ Video "' + titulo + '" registrado.');
+}
+
+// CREAR CON "IA"
+function crearConIA() {
+  return `
+    <h2>Crear Actividad Automáticamente (IA)</h2>
+    <select id="tipoActividad">
+      <option value="Quiz">Quiz</option>
+      <option value="Examen">Examen</option>
+      <option value="Tarea">Tarea</option>
+    </select><br><br>
+    <input type="text" id="temaActividad" placeholder="Tema o instrucciones"><br><br>
+    <button onclick="generarActividad()">⚡ Generar Actividad</button>
+    <div id="resultadoIA" style="margin-top:20px;"></div>
+  `;
+}
+
+function generarActividad() {
+  const tipo = document.getElementById('tipoActividad').value;
+  const tema = document.getElementById('temaActividad').value.trim();
+  const resultado = document.getElementById('resultadoIA');
+
+  if (!tema) {
+    alert('Escribe el tema o instrucciones.');
+    return;
+  }
+
+  let contenido = '';
+
+  if (tipo === 'Quiz') {
+    contenido = `
+      <h3>Quiz generado para: ${tema}</h3>
+      <ul>
+        <li>¿Qué es ${tema}?<br>A) Definición correcta<br>B) Definición incorrecta<br>C) Otra opción</li>
+        <li>Ejemplo práctico de ${tema}?<br>A) Ejemplo A<br>B) Ejemplo B<br>C) Ejemplo C</li>
+      </ul>
+    `;
+  } else if (tipo === 'Examen') {
+    contenido = `
+      <h3>Examen generado para: ${tema}</h3>
+      <p>Tiempo recomendado: 30 minutos</p>
+      <ol>
+        <li>Describe en tus palabras: ${tema}.</li>
+        <li>¿Por qué es importante ${tema}?</li>
+      </ol>
+    `;
+  } else if (tipo === 'Tarea') {
+    contenido = `
+      <h3>Tarea generada para: ${tema}</h3>
+      <p>Investigar y presentar un informe de 1 página sobre "${tema}".</p>
+    `;
+  }
+
+  resultado.innerHTML = contenido + `<br><button onclick="alert('✅ Actividad guardada.')">💾 Guardar Actividad</button>`;
+}
+</script>
+
+</body>
+</html>
+ 

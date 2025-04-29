@@ -1,0 +1,168 @@
+/* ===== RESET GENERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f9;
+    min-height: 100vh;
+  }
+  
+  /* ===== LOGIN ===== */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .login-box input, .login-box button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+  }
+  
+  .login-box input {
+    border: 1px solid #ccc;
+  }
+  
+  .login-box button {
+    background: #2575fc;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .login-box button:hover {
+    background: #1b5fc9;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  /* ===== CONTENIDO PRINCIPAL ===== */
+  #contenido {
+    padding: 20px;
+    margin-bottom: 80px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* ===== TARJETAS ===== */
+  .materias-grid, .lista-tareas, .lista-entregas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .materia-card, .tarea-card, .entrega-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+  
+  .materia-card h3, .tarea-card h4, .entrega-card h4 {
+    margin-bottom: 10px;
+  }
+  
+  /* ===== TABLAS (Notas, Asistencia) ===== */
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+  }
+  
+  th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  thead {
+    background: #2575fc;
+    color: white;
+  }
+  
+  /* ===== BOTONES ===== */
+  button {
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: #1b5fc9;
+  }
+  
+  /* ===== INPUTS Y SELECTS ===== */
+  input[type="text"], input[type="number"], input[type="date"], input[type="file"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  /* ===== NAVEGACIÓN INFERIOR ===== */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+  }
+  
+  .bottom-nav button {
+    background: none;
+    border: none;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    font-size: 12px;
+  }
+  
+  .bottom-nav button:hover {
+    color: #2575fc;
+  }
+  
+  .bottom-nav i {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+  

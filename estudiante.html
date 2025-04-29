@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACADEMIX - Estudiante</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/lucide@latest/dist/lu.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login" class="login-container">
+  <div class="login-box">
+    <h2>ACADEMIX - Estudiante</h2>
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="clave" placeholder="Contraseña">
+    <button onclick="login()">Entrar</button>
+    <p id="error" class="error"></p>
+  </div>
+</div>
+
+<!-- PLATAFORMA -->
+<div id="plataforma" class="hidden">
+  <main id="contenido"></main>
+
+  <nav class="bottom-nav">
+    <button onclick="mostrar('materias')"><i data-lucide="book"></i><span>Materias</span></button>
+    <button onclick="mostrar('tareas')"><i data-lucide="clipboard-list"></i><span>Tareas</span></button>
+    <button onclick="mostrar('notas')"><i data-lucide="file-pen-line"></i><span>Notas</span></button>
+  </nav>
+</div>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="app.js"></script>
+<script>lucide.createIcons();</script>
+
+</body>
+</html>
+ 
